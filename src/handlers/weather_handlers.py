@@ -3,6 +3,7 @@ import requests
 import json
 
 from aiogram import Router, F
+from aiogram.enums import ContentType
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, ReplyKeyboardRemove
@@ -31,8 +32,10 @@ async def cmd_cancel(message: Message, state: FSMContext):
 async def answer_on_click_city_name_button(message:Message):
     await message.answer("Write city name where you want to know weather forecast")
 
+
 #handler that retuen weather forecast
-@router.message(lambda message: message.location is not None or message.text)
+@router.message(F.content_type == ContentType.LOCATION)
+@router.message(F.text)
 async def send_weather_forecast(message: Message):
     try:
         weather_api_key = os.getenv("WEATHER_API_KEY")
