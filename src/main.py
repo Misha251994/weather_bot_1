@@ -14,10 +14,10 @@ load_dotenv()
 
 async def start_bot(bot: Bot):
     await commands(bot)
-    await bot.send_message(585210091, text='Bot start')
+    await bot.send_message(os.getenv("TELEGRAM_USER_ID"), text='Bot start')
 
 async def stop_bot(bot: Bot):
-    await bot.send_message(585210091, text='Bot stop ')
+    await bot.send_message(os.getenv("TELEGRAM_USER_ID"), text='Bot stop ')
 
 async def main() -> None:
     logging.basicConfig(level=logging.DEBUG)

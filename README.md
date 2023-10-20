@@ -29,6 +29,9 @@ pip install -r requirements.txt
  ```
  **WEATHER_API_KEY** -> register on the site "https://openweathermap.org/" and create API Key
  ```
+```commandline
+**TELEGRAM_USER_ID** -> send message to chat Get My ID
+```
 
 ## To start the bot use the command:
 ```commandline
